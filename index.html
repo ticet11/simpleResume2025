@@ -27,11 +27,34 @@
 				box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 				line-height: 1.5;
 			}
+			div.header {
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				margin-bottom: 20px;
+			}
+			div.torch-container {
+				display: flex;
+				justify-content: center;
+				margin: 20px 0;
+			}
 			img.torch {
 				width: 120px;
 				height: 120px;
 				vertical-align: middle;
 				margin: 0 5px;
+			}
+			img.skull {
+				width: 150px;
+				height: 150px;
+				vertical-align: middle;
+				margin: 15px 10px;
+			}
+			img.rose {
+				width: 150px;
+				height: 200px;
+				vertical-align: middle;
+				margin: 0 10px;
 			}
 			h1,
 			h2 {
@@ -58,16 +81,22 @@
 	</head>
 	<body>
 		<div class="container">
-			<h1>
+			<div class="header">
 				<img
 					src="https://media.tenor.com/jeYb8iK3YfsAAAAi/skull-skullgif.gif"
 					alt=""
-				/>Brian Kozub<img
+					class="skull"
+				/>
+				<div>
+					<h1>Brian Kozub</h1>
+					<h2>Software Engineer</h2>
+				</div>
+				<img
 					src="https://media.tenor.com/jeYb8iK3YfsAAAAi/skull-skullgif.gif"
 					alt=""
+					class="skull"
 				/>
-			</h1>
-			<h2>Software Engineer</h2>
+			</div>
 			<div class="section contact-info">
 				<p>Cell: <a href="tel:3857220126">(385) 722-0126</a></p>
 				<p>Email: <a href="mailto:brian@briankozub.com">brian@briankozub.com</a></p>
@@ -83,17 +112,11 @@
 				</p>
 			</div>
 			<div class="section">
-				<h2>
-					<img
-						src="https://minecraft.wiki/images/Torch.gif?8e1d4"
-						alt=""
-						class="torch"
-					/>About Me<img
-						src="https://minecraft.wiki/images/Torch.gif?8e1d4"
-						alt=""
-						class="torch"
-					/>
-				</h2>
+				<div class="torch-container">
+					<img src="https://minecraft.wiki/images/Torch.gif?8e1d4" alt="" class="torch" />
+					<h2>About Me</h2>
+					<img src="https://minecraft.wiki/images/Torch.gif?8e1d4" alt="" class="torch" />
+				</div>
 				<p>
 					Currently, I am open to remote and local (Rochester, NY) positions. I have a
 					diverse professional background across various industries, which gives me a
@@ -108,10 +131,11 @@
 				</p>
 			</div>
 			<div class="section">
-				<h2>
-					<img src="https://minecraft.wiki/images/Torch.gif?8e1d4" alt="" class="torch"/>Technical
-					Skills<img src="https://minecraft.wiki/images/Torch.gif?8e1d4" alt="" class="torch"/>
-				</h2>
+				<div class="torch-container">
+					<img src="https://minecraft.wiki/images/Torch.gif?8e1d4" alt="" class="torch" />
+					<h2>Technical Skills</h2>
+					<img src="https://minecraft.wiki/images/Torch.gif?8e1d4" alt="" class="torch" />
+				</div>
 				<ul>
 					<li>Automation, APIs, JavaScript, NodeJS, C#, Integrations Platforms</li>
 					<li>SQL, Git, Azure, AWS, Network Administration</li>
@@ -120,10 +144,11 @@
 				</ul>
 			</div>
 			<div class="section">
-				<h2>
-					<img src="https://minecraft.wiki/images/Torch.gif?8e1d4" alt="" class="torch"/>Work
-					Experience<img src="https://minecraft.wiki/images/Torch.gif?8e1d4" alt="" class="torch"/>
-				</h2>
+				<div class="torch-container">
+					<img src="https://minecraft.wiki/images/Torch.gif?8e1d4" alt="" class="torch" />
+					<h2>Work Experience</h2>
+					<img src="https://minecraft.wiki/images/Torch.gif?8e1d4" alt="" class="torch" />
+				</div>
 				<h3>Purple, Software Integrations Engineer/ Software Engineer III</h3>
 				<p>Nov 2021 - Oct 2024</p>
 				<ul>
@@ -169,8 +194,15 @@
 					inform people of upcoming elections.
 				</p>
 			</div>
-			<img src="https://minecraft.wiki/images/Torch.gif?8e1d4" alt="" class="torch"/>
-			<img src="https://minecraft.wiki/images/Torch.gif?8e1d4" alt="" class="torch"/>
+			<div class="torch-container">
+				<img src="https://minecraft.wiki/images/Torch.gif?8e1d4" alt="" class="torch" />
+				<img
+					src="https://media1.giphy.com/media/v1.Y2lkPTc5MGI3NjExaTdkMjMyazl2ZW9kOHZ2OWQ0dWVrYXdlMjZwNWV5azdrMDU2OHE4MCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/L4NdxLGpIF1Rhft6n3/giphy.gif"
+					alt=""
+					class="rose"
+				/>
+				<img src="https://minecraft.wiki/images/Torch.gif?8e1d4" alt="" class="torch" />
+			</div>
 		</div>
 	</body>
 </html>

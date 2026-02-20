@@ -6,6 +6,21 @@ body {
 	padding: 20px;
 	background-image: url("./assets/themes/space/background-img.jpg");
 	background-color: #dbdbdb;
+	display: flex;
+}
+
+.theme-button {
+	height: 40px;
+	position: fixed;
+	top: 50%;
+}
+
+#left-theme-button {
+	left: 10px;
+}
+
+#right-theme-button {
+	right: 10px;
 }
 
 .container {

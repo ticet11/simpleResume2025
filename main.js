@@ -13,7 +13,11 @@ const container = document.getElementsByClassName("container");
 const header = document.getElementsByClassName("header");
 const themeChanger = (direction) => {
 	if (direction === "left") {
-		currentThemeIndex = (currentThemeIndex - 1) % themes.length;
+		if (currentThemeIndex === 0) {
+			currentThemeIndex = themes.length - 1;
+		} else {
+			currentThemeIndex = (currentThemeIndex - 1) % themes.length;
+		}
 	} else if (direction === "right") {
 		currentThemeIndex = (currentThemeIndex + 1) % themes.length;
 	}

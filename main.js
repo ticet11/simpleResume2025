@@ -1,16 +1,43 @@
-const themes = ["space", "spooky", "plain"];
-const fonts = {
-	space: "Zen Dots, sans-seriff",
-	spooky: "UnifrakturMaguntia, cursive",
-	plain: "Arial, sans-serif",
-};
+const themes = [
+	{
+		name: "plain",
+		fontFamily: "Times New Roman, serif",
+		boxBackground: "rgba(255, 255, 255, 1)",
+		accentColor: "black",
+		backgroundColor: "black",
+		titleTextColor: "black",
+		textColor: "black",
+	},
+	{
+		name: "space",
+		fontFamily: "Zen Dots, sans-serif",
+		boxBackground: "rgba(0, 0, 0, 0.4)",
+		accentColor: "#6cf",
+		backgroundColor: "black",
+		titleTextColor: "#ff58ba",
+		textColor: "#e0e0e0",
+	},
+	{
+		name: "spooky",
+		fontFamily: "UnifrakturMaguntia, cursive",
+		boxBackground: "rgba(0, 0, 0, 0.8)",
+		accentColor: "#e60000",
+		backgroundColor: "black",
+		titleTextColor: "#e60000",
+		textColor: "#e0e0e0",
+	},
+];
 let currentThemeIndex = 0;
 const header_images = document.getElementsByClassName("header-img");
+const header_texts = document.getElementsByClassName("header-text");
+const sections = document.getElementsByClassName("section");
 const section_header_images = document.getElementsByClassName("section-header-img");
 const footer_images = document.getElementsByClassName("footer-img");
 const body = document.getElementsByTagName("body");
 const container = document.getElementsByClassName("container");
 const header = document.getElementsByClassName("header");
+
+const theme_buttons = document.getElementsByClassName("theme-button");
 const themeChanger = (direction) => {
 	if (direction === "left") {
 		if (currentThemeIndex === 0) {
@@ -21,16 +48,36 @@ const themeChanger = (direction) => {
 	} else if (direction === "right") {
 		currentThemeIndex = (currentThemeIndex + 1) % themes.length;
 	}
-	console.log(currentThemeIndex);
-	console.log(header);
 
-	const theme_key = themes[currentThemeIndex];
-	if (theme_key === "plain") {
-		body[0].style.backgroundImage = "none";
-		body[0].style.fontFamily = fonts[theme_key];
-		container[0].style.background = "#f4f4f4";
-		container[0].style.color = "#000000";
-		header[0].style.color = "#333";
+	container[0].style.fontFamily = themes[currentThemeIndex].fontFamily;
+	if (themes[currentThemeIndex].name === "plain") {
+		body[0].style.background = themes[currentThemeIndex].backgroundColor;
+	} else {
+		body[0].style.background = `${themes[currentThemeIndex].backgroundColor} url("./assets/themes/${themes[currentThemeIndex].name}/background-img.jpg") repeat`;
+	}
+	body[0].style.color = themes[currentThemeIndex].textColor;
+	container[0].style.background = themes[currentThemeIndex].boxBackground;
+	container[0].style.borderColor = themes[currentThemeIndex].accentColor;
+	container[0].style.boxShadow = `0 0 20px ${themes[currentThemeIndex].accentColor}`;
+
+	for (let i = 0; i < theme_buttons.length; i++) {
+		theme_buttons[i].style.fontFamily = themes[currentThemeIndex].fontFamily;
+		theme_buttons[i].style.color = themes[currentThemeIndex].accentColor;
+		theme_buttons[i].style.background = themes[currentThemeIndex].boxBackground;
+		theme_buttons[i].style.borderColor = themes[currentThemeIndex].accentColor;
+		theme_buttons[i].style.boxShadow = `0 0 20px ${themes[currentThemeIndex].accentColor}`;
+	}
+
+	for (let i = 0; i < header_texts.length; i++) {
+		header_texts[i].style.color = themes[currentThemeIndex].titleTextColor;
+		header_texts[i].style.textShadow = `0 0 0 ${themes[currentThemeIndex].accentColor}`;
+	}
+
+	for (let i = 0; i < sections.length; i++) {
+		sections[i].style.borderColor = themes[currentThemeIndex].accentColor;
+	}
+
+	if (themes[currentThemeIndex].name === "plain") {
 		for (let i = 0; i < header_images.length; i++) {
 			header_images[i].style.visibility = "hidden";
 		}
@@ -41,22 +88,20 @@ const themeChanger = (direction) => {
 			footer_images[i].style.visibility = "hidden";
 		}
 	} else {
-		body[0].style.backgroundImage = `url("./assets/themes/${theme_key}/background-img.jpg")`;
-		body[0].style.fontFamily = fonts[theme_key];
-		container[0].style.background = "#140101";
-		container[0].style.color = "#f4f4f4";
-		header[0].style.color = "#e9e9e9";
 		for (let i = 0; i < header_images.length; i++) {
 			header_images[i].style.visibility = "visible";
-			header_images[i].src = `./assets/themes/${theme_key}/header-img.gif`;
+			header_images[i].src =
+				`./assets/themes/${themes[currentThemeIndex].name}/header-img.gif`;
 		}
 		for (let i = 0; i < section_header_images.length; i++) {
 			section_header_images[i].style.visibility = "visible";
-			section_header_images[i].src = `./assets/themes/${theme_key}/section-header-img.gif`;
+			section_header_images[i].src =
+				`./assets/themes/${themes[currentThemeIndex].name}/section-header-img.gif`;
 		}
 		for (let i = 0; i < footer_images.length; i++) {
 			footer_images[i].style.visibility = "visible";
-			footer_images[i].src = `./assets/themes/${theme_key}/footer-img.gif`;
+			footer_images[i].src =
+				`./assets/themes/${themes[currentThemeIndex].name}/footer-img.gif`;
 		}
 	}
 };

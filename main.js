@@ -19,7 +19,7 @@ const themes = [
 	},
 	{
 		name: "spooky",
-		fontFamily: "UnifrakturMaguntia, cursive",
+		fontFamily: "Silkscreen, \"Press Start 2P\", sans-serif",
 		boxBackground: "rgba(0, 0, 0, 0.8)",
 		accentColor: "#e60000",
 		backgroundColor: "black",

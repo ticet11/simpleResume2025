@@ -3,9 +3,10 @@ const themes = [
 		name: "plain",
 		fontFamily: "Times New Roman, serif",
 		boxBackground: "rgba(255, 255, 255, 1)",
-		accentColor: "black",
+		accentColor: "#00ab44",
 		backgroundColor: "black",
 		titleTextColor: "black",
+		sectionHeaderTextColor: "#00ab44",
 		textColor: "black",
 	},
 	{
@@ -15,15 +16,17 @@ const themes = [
 		accentColor: "#6cf",
 		backgroundColor: "black",
 		titleTextColor: "#ff58ba",
+		sectionHeaderTextColor: "#ff58ba",
 		textColor: "#e0e0e0",
 	},
 	{
 		name: "spooky",
-		fontFamily: "Silkscreen, \"Press Start 2P\", sans-serif",
+		fontFamily: 'Silkscreen, "Press Start 2P", sans-serif',
 		boxBackground: "rgba(0, 0, 0, 0.8)",
 		accentColor: "#e60000",
 		backgroundColor: "black",
 		titleTextColor: "#e60000",
+		sectionHeaderTextColor: "#e60000",
 		textColor: "#e0e0e0",
 	},
 ];
@@ -31,6 +34,7 @@ let currentThemeIndex = 0;
 const header_images = document.getElementsByClassName("header-img");
 const header_texts = document.getElementsByClassName("header-text");
 const sections = document.getElementsByClassName("section");
+const section_header_texts = document.getElementsByClassName("section-header-text");
 const section_header_images = document.getElementsByClassName("section-header-img");
 const footer_images = document.getElementsByClassName("footer-img");
 const body = document.getElementsByTagName("body");
@@ -50,27 +54,27 @@ const themeChanger = (direction) => {
 	}
 
 	container[0].style.fontFamily = themes[currentThemeIndex].fontFamily;
-	if (themes[currentThemeIndex].name === "plain") {
-		body[0].style.background = themes[currentThemeIndex].backgroundColor;
-	} else {
-		body[0].style.background = `${themes[currentThemeIndex].backgroundColor} url("./assets/themes/${themes[currentThemeIndex].name}/background-img.jpg") repeat`;
-	}
+
 	body[0].style.color = themes[currentThemeIndex].textColor;
 	container[0].style.background = themes[currentThemeIndex].boxBackground;
 	container[0].style.borderColor = themes[currentThemeIndex].accentColor;
-	container[0].style.boxShadow = `0 0 20px ${themes[currentThemeIndex].accentColor}`;
+	container[0].style.boxShadow = `0 0 30px ${themes[currentThemeIndex].accentColor}`;
 
 	for (let i = 0; i < theme_buttons.length; i++) {
 		theme_buttons[i].style.fontFamily = themes[currentThemeIndex].fontFamily;
 		theme_buttons[i].style.color = themes[currentThemeIndex].accentColor;
 		theme_buttons[i].style.background = themes[currentThemeIndex].boxBackground;
 		theme_buttons[i].style.borderColor = themes[currentThemeIndex].accentColor;
-		theme_buttons[i].style.boxShadow = `0 0 20px ${themes[currentThemeIndex].accentColor}`;
+		theme_buttons[i].style.boxShadow = `0 0 30px ${themes[currentThemeIndex].accentColor}`;
 	}
 
 	for (let i = 0; i < header_texts.length; i++) {
 		header_texts[i].style.color = themes[currentThemeIndex].titleTextColor;
-		header_texts[i].style.textShadow = `0 0 0 ${themes[currentThemeIndex].accentColor}`;
+	}
+
+	for (let i = 0; i < section_header_texts.length; i++) {
+		section_header_texts[i].style.color =
+			themes[currentThemeIndex].sectionHeaderTextColor;
 	}
 
 	for (let i = 0; i < sections.length; i++) {
@@ -78,6 +82,7 @@ const themeChanger = (direction) => {
 	}
 
 	if (themes[currentThemeIndex].name === "plain") {
+		body[0].style.background = themes[currentThemeIndex].backgroundColor;
 		for (let i = 0; i < header_images.length; i++) {
 			header_images[i].style.visibility = "hidden";
 		}
@@ -88,6 +93,7 @@ const themeChanger = (direction) => {
 			footer_images[i].style.visibility = "hidden";
 		}
 	} else {
+		body[0].style.background = `${themes[currentThemeIndex].backgroundColor} url("./assets/themes/${themes[currentThemeIndex].name}/background-img.jpg") repeat`;
 		for (let i = 0; i < header_images.length; i++) {
 			header_images[i].style.visibility = "visible";
 			header_images[i].src =
